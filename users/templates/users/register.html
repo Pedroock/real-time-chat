@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="{% static 'chat/reset.css' %}">
+    <link rel='stylesheet' href='{% static "users/register.css" %}'>
+</head>
+<body>
+    <div class="background">
+        <img class="background-logo" src="{% static 'users/xaax-logo.png' %}" alt="">
+        <img class="background-image" src="{% static 'users/xaax-background.png' %}" alt="background">
+    </div>
+    <div class="wrapper">
+        <img class="logo" src="{% static 'users/xaax-logo.png' %}" alt="">
+        <h1>Lets chat</h1>
+        <h2>Create an account</h2>
+        <form method="post">
+            {% csrf_token %}
+                {{form}}
+                <button type="submit">Create Account</button>
+                <div class="register">
+                    <p>Already have an account?</p>
+                    <a href="{% url 'login' %}"> Sign In</a>
+                </div>
+        </form>
+    </div>
+
+    
+    <div class="op">
+        <img class="background-image" src="{% static 'users/xaax-logo-blue.png' %}" alt="background">
+        <script>
+            setTimeout(function(){
+                const op = document.querySelector('.op')
+                op.style.display = 'none'
+            }, 1000)
+        </script>
+    </div>
+</body>
+</html>
